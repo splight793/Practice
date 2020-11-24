@@ -35,7 +35,7 @@ using RT = std::unordered_set<r, rHash>;
 RT FL_ML(const int);//蛮力算法，O(n^2)时间，O(1)空间
 RT FL_HS(const int);//回溯算法，O(n^2)时间，O(1)空间
 RT FL_FT(const int);//查找表，平均O(n)时间，最坏O(n^2)，O(n)空间
-RT FL_DF(const int);//双向查找算法，O(n)时间，O(n)空间
+RT FL_DF(const int);//双向查找算法，O(nlogn)时间，O(n)空间
 int sqrti(const int);//整数平方根，向上取整
 void printRT(const RT& rt) {//输出结果函数
 	for (const auto& rr : rt) {
@@ -207,7 +207,7 @@ RT FL_DF(const int n) {
 	//循环的对最小的区间归并排序
 	//每个子向量内数据分别是有序的
 	//采用最小堆决定归并的向量
-	//时间复杂度为O(n)
+	//时间复杂度为O(nlogn)
 	auto comp = [](const std::vector<DF> &a, const std::vector<DF> &b) { return a.size() > b.size();};
 	std::make_heap(s.begin(), s.end(), comp);
 	auto size = s.size();
